@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: my_apache_server
+    ports:
+      - "8080:80"  # Accesamos el puerto 80 del contenedor al puerto 8080 de la máquina host
+    volumes:
+      - ./index.html:/var/www/html/index.html  # Sincronizamos el archivo index.html del host con el contenedor
+    restart: always  # Corroboramos que el contenedor se reinicie automáticamente si falla en algun momento
